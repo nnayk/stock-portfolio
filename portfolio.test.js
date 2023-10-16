@@ -1,3 +1,4 @@
+const ShareSaleException = require("./ShareSaleException.js");
 const Portfolio = require("./portfolio.js");
 
 test("Testing new empty portfolio", () => {
@@ -32,6 +33,23 @@ test("Testing removing multiple shares from a portfolio", () => {
   equities.addShares("GE", 7);
   equities.addShares("BRK", 1);
   equities.removeShares("AAPL", 3);
-  console.log(`after removal: ${equities.getShares()}`);
   expect(equities.countOccurrences("AAPL")).toEqual(2);
+});
+
+test("Testing adding 0 shares of a stock (i.e. non-owned stock) to portfolio", () => {
+  const equities = new Portfolio();
+  equities.addShares("AAPL", 5);
+  equities.addShares("GE", 7);
+  equities.addShares("BRK", 1);
+  equities.removeShares("NON_OWNED", 0);
+  expect(equities.countOccurrences("NON_OWNED")).toEqual(0);
+});
+
+test("Testing removing an invalid number shares of a stock", () => {
+  const equities = new Portfolio();
+  equities.addShares("AAPL", 5);
+  equities.addShares("GE", 7);
+  expect(() => {
+    equities.removeShares("AAPL", 9);
+  }).toThrow(ShareSaleException);
 });

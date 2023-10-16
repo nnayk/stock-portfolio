@@ -1,3 +1,5 @@
+const ShareSaleException = require("./ShareSaleException");
+
 class Portfolio {
   constructor() {
     this.shares = [];
@@ -12,6 +14,10 @@ class Portfolio {
 
   // Remove shares from the portfolio
   removeShares(share, quantity) {
+    if (quantity > this.countOccurrences(share)) {
+      throw new ShareSaleException("You cannot sell more shares than you own.");
+      s;
+    }
     for (let i = 0; i < quantity; i++) {
       const index = this.shares.indexOf(share);
       if (index > -1) {
