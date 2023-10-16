@@ -17,6 +17,7 @@ test("Testing number of unique shares in portfolio", () => {
   const equities = new Portfolio();
   equities.addShares("AAPL", 5);
   equities.addShares("GE", 7);
-  equities.addShares("BRK");
+  equities.addShares("BRK", 1);
+  console.log(`shares = ${equities.getShares()}`);
   expect(equities.getNumberOfUniqueStocks()).toEqual(3);
 });
