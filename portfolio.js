@@ -10,6 +10,17 @@ class Portfolio {
     }
   }
 
+  // Remove shares from the portfolio
+  removeShares(share, quantity) {
+    for (let i = 0; i < quantity; i++) {
+      const index = this.shares.indexOf(share);
+      if (index > -1) {
+        // only splice array when item is found
+        this.shares.splice(index, 1); // 2nd parameter means remove one item only
+      }
+    }
+  }
+
   // Get all the shares in a portfolio
   getShares() {
     return this.shares;
