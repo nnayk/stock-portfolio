@@ -1,0 +1,23 @@
+{
+  "name": "stock-portfolio",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "portfolio.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nnayk/stock-portfolio.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nnayk/stock-portfolio/issues"
+  },
+  "homepage": "https://github.com/nnayk/stock-portfolio#readme",
+  "dependencies": {
+    "jest": "^29.7.0"
+  }
+}
