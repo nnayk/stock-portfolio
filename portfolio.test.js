@@ -12,3 +12,11 @@ test("Testing portfolio empty functionality", () => {
   const equities = new Portfolio();
   expect(equities.isEmpty()).toEqual(true);
 });
+
+test("Testing number of unique shares in portfolio", () => {
+  const equities = new Portfolio();
+  equities.addShares("AAPL", 5);
+  equities.addShares("GE", 7);
+  equities.addShares("BRK");
+  expect(equities.getNumberOfUniqueStocks()).toEqual(3);
+});
