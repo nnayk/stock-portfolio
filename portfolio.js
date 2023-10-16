@@ -3,7 +3,7 @@ class Portfolio {
     this.shares = [];
   }
 
-  // Add a share to the portfolio
+  // Add shares to the portfolio
   addShares(share, quantity) {
     for (let i = 0; i < quantity; i++) {
       this.shares.push(share);
@@ -24,6 +24,17 @@ class Portfolio {
   getNumberOfUniqueStocks() {
     const set_shares = new Set(this.shares);
     return set_shares.size;
+  }
+
+  // Get the number of shares of a particular stock in the portfolio
+  countOccurrences(targetValue) {
+    let count = 0;
+    for (const item of this.shares) {
+      if (item === targetValue) {
+        count++;
+      }
+    }
+    return count;
   }
 }
 
